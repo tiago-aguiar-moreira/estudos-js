@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        html { 
+            height: 100%
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-size: 25px;
+        }
+
+        input[type=text] {
+            width: 25%;
+            margin: 10px 5px;
+            box-sizing: border-box;
+            font-size: 25px;
+        }
+    </style>  
+    <script type="text/javascript">
+        function initialize() {
+            let data = { };
+
+            let attrs = [
+                'id',
+                'name',
+                'birth'
+            ];
+
+            for (let index = 0; index < attrs.length; index++) {
+                const attrName = attrs[index];
+                
+                switch (attrName) {
+                    case 'id':
+                        data.id = 15;
+                        break;
+                    case 'name':
+                        data.name = 'Jake';
+                        break;
+                    case 'birth':
+                        data.birth = new Date(2020, 05, 09);
+                        break;
+                    default:
+                        console.log(`Attribute ${attrName} not found`);
+                        break;
+                }
+            }
+
+            document.getElementById("id").value = data.id;
+            document.getElementById("name").value = data.name;
+            document.getElementById("birth").value = data.birth.toLocaleDateString('pt-BR');
+        }
+    </script>
+  </head>
+  <body onload="initialize()">
+    <div>
+      <label for="id">Id</label><br>
+      <input type="text" id="id" disabled/><br>
+
+      <label for="name">Name</label><br>
+      <input type="text" id="name" disabled/><br>
+
+      <label for="birth">Birth</label><br>
+      <input type="text" id="birth" disabled/><br>
+    </div>
+  </body>
+</html> 
